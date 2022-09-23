@@ -1,0 +1,1 @@
+# cs-4800-wildfire-prediction-project

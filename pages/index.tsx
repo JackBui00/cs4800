@@ -1,6 +1,7 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Map } from '../components/Map';
 import { TitleBar } from '../components/TitleBar';
 
 const Home: NextPage = () => {
@@ -30,16 +31,7 @@ const Home: NextPage = () => {
             flexDirection: 'row',
           }}
         >
-          <Box
-            sx={{
-              flex: '4 4',
-              height: '100%',
-              width: '100%',
-              backgroundColor: 'gray',
-            }}
-          >
-            Map
-          </Box>
+          <Map />
           <Box sx={{ flex: '1 1' }}>Data</Box>
         </Box>
       </Box>

@@ -1,15 +1,13 @@
-import Papa from 'papaparse';
+
 import "csv-parser";
 
 
 
 
 
-const csv = 'public/fireTestData.csv'
 
-function find(date){
-    //return csvData.filter(data=> data.Date === date)[0].City
-} 
+
+
 
 export default function handler(req, res) {
     const body = req.body
@@ -23,7 +21,7 @@ export default function handler(req, res) {
         .pipe(csv())
         .on('data', (row) => {
         
-        //console.log(row);
+        console.log(row);
         //console.log(row)
         
         //console.log(row)

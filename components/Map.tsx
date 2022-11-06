@@ -12,6 +12,7 @@ export const Map = (): ReactElement => {
     pitch: 0,
     bearing: 0,
   };
+
   console.log(process.env.NEXT_PUBLIC_API_KEY);
   return (
     <Box
@@ -19,6 +20,7 @@ export const Map = (): ReactElement => {
         flex: '4 4',
         height: '100%',
         width: '100%',
+        overflow: 'hidden',
         backgroundColor: 'gray',
       }}
     >

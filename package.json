@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.9",
     "@mui/x-date-pickers": "^5.0.4",
+    "csv-parser": "^3.0.0",
     "deck.gl": "^8.8.13",
     "mapbox-gl": "^2.10.0",
     "moment": "^2.29.4",

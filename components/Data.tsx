@@ -1,22 +1,22 @@
-import { Box, TextField, Typography } from '@mui/material';
+import { Box, CircularProgress, TextField, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { ReactElement, useContext, useMemo, useState } from 'react';
-import { WildFire, WildFireContext } from '../pages';
+import { City } from '../data/cityCache';
+import { Context, ContextType } from '../pages';
 
 export const Data = (): ReactElement => {
   const [filter, setFilter] = useState<string>('');
-  const fires = useContext<WildFire[]>(WildFireContext);
-  const filteredFires = useMemo(() => {
-    return fires
-      .filter((fire) =>
-        fire.location.toLowerCase().includes(filter.toLowerCase())
-      )
-      .map((fire) => {
-        return <Fire key={fire.location} fire={fire} />;
+  const context = useContext<ContextType>(Context);
+  const filteredCities = useMemo(() => {
+    return context.cities
+      .filter((city) => city.name.toLowerCase().includes(filter.toLowerCase()))
+      .map((city) => {
+        return <CityData key={city.name} city={city} />;
       });
-  }, [fires, filter]);
+  }, [context.cities, filter]);
+
   return (
-    <Stack>
+    <Stack sx={{ overflowY: 'scroll', height: '100%' }}>
       <TextField
         id="outlined-basic"
         label="Enter Location..."
@@ -25,19 +25,26 @@ export const Data = (): ReactElement => {
         onChange={(val) => setFilter(val.target.value || '')}
       />
 
-      {filteredFires}
+      {filteredCities}
     </Stack>
   );
 };
 
-const Fire = ({ fire }: { fire: WildFire }): ReactElement => {
+const CityData = ({ city }: { city: City }): ReactElement => {
   return (
     <Box sx={{ border: '1px black solid', p: 1 }}>
       <Stack>
-        <Typography>Location: {fire.location}</Typography>
-        <Typography>Change: {fire.chance}</Typography>
-        <Typography>Humidity: {fire.humidity}</Typography>
-        <Typography>Temperature: {fire.temp}</Typography>
+        <Typography variant="h6">
+          {city.name} ({city.lat},{city.lng})
+          {city.probability && city.humidity && city.temp ? (
+            <></>
+          ) : (
+            <CircularProgress size="1em" sx={{ ml: '1em' }} />
+          )}
+        </Typography>
+        <Typography>Wildfire Chance: {city.probability}</Typography>
+        <Typography>Humidity: {city.humidity}</Typography>
+        <Typography>Temperature: {city.temp}</Typography>
       </Stack>
     </Box>
   );

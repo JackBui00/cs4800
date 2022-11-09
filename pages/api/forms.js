@@ -1,12 +1,4 @@
-
 import "csv-parser";
-
-
-
-
-
-
-
 
 
 export default function handler(req, res) {

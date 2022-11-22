@@ -70,7 +70,23 @@ const Home: NextPage<StaticProps> = (props: StaticProps) => {
           }}
         >
           <TitleBar />
-          <Box sx={{ flex: '1 1' }}>input</Box>
+        <Box sx={{ flex: '1 1' }}>input
+
+        <form action="/api/forms" method="post">
+            <label htmlFor="City">City:</label>
+            <input type="text" id="City" name="City" /><br></br>
+            <label htmlFor="Date">Date:</label>
+            <input type="text" id="Date" name="Date" /><br></br>
+            <label htmlFor= "Rainfall 30 Days">Rainfall 30 Days</label>
+            <input type = "text" id="Rainfall_30_Days" name = "Rainfall_30_Days" /><br></br>
+            <label htmlFor= "Rainfall_60_Days">Rainfall 60 Days</label>
+            <input type = "text" id="Rainfall_60_Days" name = "Rainfall_60_Days" /><br></br>
+            <label htmlFor= "Rainfall_90_Days">Rainfall 90 Days</label>
+            <input type = "text" id="Rainfall_90_Days" name = "Rainfall_90_Days" /><br></br>
+            <button type="submit">Submit</button>
+          </form>
+          </Box>
+
           <Box
             sx={{
               flex: '4 4',

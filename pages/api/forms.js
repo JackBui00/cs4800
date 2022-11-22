@@ -22,5 +22,5 @@ export default function handler(req, res) {
   console.log(req.body);
 
   //res.status(200).json({csvData})
-  res.status(200).json({ data: `${body.City} ${body.Date} ${body.Rainfall_30_Days} ${body.Rainfall_60_Days} ${body.Rainfall_60_Days}` });
+  res.status(200).json({ data: `${body.City} ${body.Date} ${body.Rainfall_30_Days} ${body.Rainfall_60_Days} ${body.Rainfall_90_Days}` });
 }
